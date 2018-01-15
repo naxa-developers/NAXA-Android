@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Naxa</string>
+    <string name="title_activity_maps">Naxa</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="action_like">Like Us</string>
+    <string name="action_rate">Rate Us</string>
+    <string name="default_snippet_info">Snippet</string>
+</resources>
