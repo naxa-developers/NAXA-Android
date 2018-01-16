@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.NaxaCo.Naxa.MainActivity;
 import com.NaxaCo.Naxa.MapsActivity;
 import com.NaxaCo.Naxa.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -55,7 +56,7 @@ import java.util.List;
 
 public class MapModelFragment extends Fragment implements OnMapReadyCallback, GoogleMap.OnMapClickListener, GoogleMap.OnMapLongClickListener, GoogleMap.OnMarkerClickListener {
     private static final String TAG = MapsActivity.class.getSimpleName();
-    private GoogleMap mMap;
+    public static GoogleMap mMap;
     private CameraPosition oCameraPosition;
     private GeoDataClient oGeoDataClient;
     private PlaceDetectionClient oPlaceDetectionClient;
@@ -325,7 +326,7 @@ public class MapModelFragment extends Fragment implements OnMapReadyCallback, Go
      //   }
     }
     public void drawPolyline(){
-        Polyline polyline=mMap.addPolyline(
+        mMap.addPolyline(
                 new PolylineOptions().
                         add(new LatLng(51.5,-0.1),new LatLng(40.7,-74.0))
                 .width(5)
@@ -360,6 +361,12 @@ public class MapModelFragment extends Fragment implements OnMapReadyCallback, Go
         }
     }
 
+    public void test(GoogleMap googleMap){
+        LatLng sydeny=new LatLng(13.00,14.00);
+       // mMap.addMarker(new MarkerOptions().position(sydeny).title("Hello world"));
+        Toast.makeText(getActivity(),"Hello World",Toast.LENGTH_SHORT).show();
+        googleMap.addMarker(new MarkerOptions().position(sydeny).title("Hello world"));
+    }
 
     @Override
     public void onMapLongClick(LatLng point) {
@@ -367,4 +374,8 @@ public class MapModelFragment extends Fragment implements OnMapReadyCallback, Go
         arrayPoints.clear();
         checkClick = false;
         Toast.makeText(getActivity(), "Area:" + SphericalUtil.computeArea(latLngs), Toast.LENGTH_SHORT).show();
-    }}
+    }
+
+
+}
+
