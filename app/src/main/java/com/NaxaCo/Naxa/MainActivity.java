@@ -4,6 +4,8 @@ import android.Manifest;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
@@ -16,12 +18,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.NaxaCo.Naxa.Fragments.MapModelFragment;
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
+
+import java.io.IOException;
+import java.util.List;
+
+import static com.NaxaCo.Naxa.Fragments.MapModelFragment.mMap;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -39,14 +52,17 @@ public class MainActivity extends AppCompatActivity
         searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
+                Toast.makeText(getApplicationContext(),"Hello",Toast.LENGTH_SHORT).show();
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
+                Toast.makeText(getApplicationContext(),"Hi",Toast.LENGTH_SHORT).show();
                 return false;
             }
         });
+
         fabAdd = (FloatingActionButton) findViewById(R.id.fab2);
         fabDelete = (FloatingActionButton) findViewById(R.id.fab3);
         fabEdit = (FloatingActionButton) findViewById(R.id.fab1);
@@ -57,25 +73,23 @@ public class MainActivity extends AppCompatActivity
                 Toast.makeText(getApplicationContext(),"Hello World",Toast.LENGTH_SHORT).show();
             }
         });
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-
         mapModelFragment=new MapModelFragment();
         FragmentManager manager=getFragmentManager();
         manager.beginTransaction().replace(R.id.map_holder,mapModelFragment).commit();
+
         int PERMISSION_ALL = 1;
         String[] PERMISSIONS = {Manifest.permission.ACCESS_FINE_LOCATION};
         if(!hasPermissions(this, PERMISSIONS)){
             ActivityCompat.requestPermissions(this, PERMISSIONS, PERMISSION_ALL);
         }
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.bringToFront();
+        navigationView.setNavigationItemSelectedListener(this);
     }
     public static boolean hasPermissions(Context context, String... permissions) {
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && context != null && permissions != null) {
@@ -91,13 +105,18 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
+     //   DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+   //     searchView = (MaterialSearchView) findViewById(R.id.search_view);
+        if (searchView.isSearchOpen()) {
+            searchView.closeSearch();
         } else {
             super.onBackPressed();
         }
+        /* if (drawer.isDrawerOpen(GravityCompat.START)|| searchView.isSearchOpen()) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }*/
 
     }
 
@@ -125,22 +144,35 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
+
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
+         mapModelFragment.drawPolyline();
+            //   mapModelFragment.test(mMap);
+         //   Toast.makeText(getApplicationContext(),"Hi",Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_gallery) {
+        //    mapModelFragment.test(mMap);
+         //   FragmentManager fm = getFragmentManager();
 
+//if you added fragment via layout xml
+       //     MapModelFragment fragment = (MapModelFragment) fm.findFragmentById(R.id.map);
+     //       fragment.drawPolyline();
+           // Toast.makeText(getApplicationContext(),"HEllo World",Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_slideshow) {
-
+            Toast.makeText(getApplicationContext(),"Computer",Toast.LENGTH_SHORT).show();
+           // test(mMap);
+            /*
+            LatLng sydeny=new LatLng(15.0,121.0);
+           mMap.addMarker(new MarkerOptions().position(sydeny).title("HEllo World"));*/
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
 
+            // fragment.yourPublicMethod();
         } else if (id == R.id.nav_send) {
 
         }
@@ -149,6 +181,7 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 
 
 }
