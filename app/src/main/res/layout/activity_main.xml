@@ -37,7 +37,6 @@
         android:layout_alignParentRight="true"
         android:paddingBottom="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
-        fab:menu_backgroundColor="#ccffffff"
         fab:menu_fab_label="Choose an action"
         fab:fab_colorNormal="#DA4336"
         fab:fab_colorPressed="#E75043"
