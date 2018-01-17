@@ -10,4 +10,14 @@
     <string name="action_like">Like Us</string>
     <string name="action_rate">Rate Us</string>
     <string name="default_snippet_info">Snippet</string>
+    <string-array name="planets_array">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
 </resources>

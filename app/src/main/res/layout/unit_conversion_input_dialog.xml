@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center_horizontal"
+        android:text="Unit Conversion"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/inputUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="#78909c"
+            android:hint="Input unit"
+            android:textSize="30sp" />
+
+        <com.jaredrummler.materialspinner.MaterialSpinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/Convert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Convert"
+        android:textAllCaps="false" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+
+            <EditText
+                android:id="@+id/biggha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:hint="Biggha" />
+
+            <EditText
+                android:id="@+id/katha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/biggha"
+                android:editable="false"
+                android:hint="Katha" />
+
+            <EditText
+                android:id="@+id/dhur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/katha"
+                android:editable="false"
+                android:hint="Dhur" />
+
+            <EditText
+                android:id="@+id/ropani"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dhur"
+                android:editable="false"
+                android:hint="Ropani" />
+
+            <EditText
+                android:id="@+id/khetmuri"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ropani"
+                android:editable="false"
+                android:hint="Khetmuri" />
+
+            <EditText
+                android:id="@+id/aana"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/khetmuri"
+                android:editable="false"
+                android:hint="Aana" />
+
+            <EditText
+                android:id="@+id/paisa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/aana"
+                android:editable="false"
+                android:hint="Paisa" />
+
+            <EditText
+                android:id="@+id/daam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/paisa"
+                android:editable="false"
+                android:hint="Daam" />
+
+            <EditText
+                android:id="@+id/meterSquare"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/daam"
+                android:editable="false"
+                android:hint="Meter Square" />
+
+            <EditText
+                android:id="@+id/squareFeet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/meterSquare"
+                android:editable="false"
+                android:hint="Square Feet" />
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>
