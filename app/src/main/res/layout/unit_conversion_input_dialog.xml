@@ -1,46 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/border"
     android:orientation="vertical">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
-        android:gravity="center_horizontal"
-        android:text="Unit Conversion"
-        android:textSize="30sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="10dp"
-        android:orientation="horizontal">
+        android:background="@color/conversion_head_background">
 
-        <EditText
-            android:id="@+id/inputUnit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:background="#78909c"
-            android:hint="Input unit"
-            android:textSize="30sp" />
-
-        <com.jaredrummler.materialspinner.MaterialSpinner
-            android:id="@+id/spinner"
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_margin="7dp"
+            android:background="@color/conversion_head"
+            android:gravity="center_horizontal"
+            android:text="Unit Conversion"
+            android:textColor="@color/colorPrimary"
+            android:textSize="30sp"
+            android:typeface="monospace" />
     </LinearLayout>
 
-    <Button
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_weight="1"
+            android:id="@+id/text_input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_marginLeft="10dp"
+                android:inputType="number"
+                android:id="@+id/inputUnit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Units" />
+        </android.support.design.widget.TextInputLayout>
+
+        <com.jaredrummler.materialspinner.MaterialSpinner
+            android:background="@color/conversion_head"
+            android:layout_weight="1"
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <mehdi.sakout.fancybuttons.FancyButton
         android:id="@+id/Convert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Convert"
-        android:textAllCaps="false" />
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        fancy:fb_borderColor="@color/colorPrimaryDark"
+        fancy:fb_borderWidth="1dp"
+        fancy:fb_defaultColor="@color/conversion_head_background"
+        fancy:fb_focusColor="@color/conversion_head"
+        fancy:fb_fontIconResource="&#xf04b;"
+        fancy:fb_iconPosition="left"
+        fancy:fb_radius="30dp"
+        fancy:fb_text="CONVERT"
+        fancy:fb_textColor="#FFFFFF" />
 
     <ScrollView
         android:layout_width="wrap_content"
@@ -52,85 +83,163 @@
             android:layout_margin="10dp"
             android:orientation="horizontal">
 
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/text_biggha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/biggha"
+
+                <EditText
+                    android:id="@+id/biggha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:editable="false"
+                    android:hint="Biggha"
+
+                    android:textColor="@color/conversion_text" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/text_katha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:editable="false"
-                android:hint="Biggha" />
+                android:layout_below="@+id/text_biggha">
 
-            <EditText
-                android:id="@+id/katha"
+                <EditText
+                    android:id="@+id/katha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/biggha"
+                    android:editable="false"
+                    android:hint="Katha"
+                    android:textColor="@color/conversion_text" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/text_dhur"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/text_katha">
+
+                <EditText
+                    android:id="@+id/dhur"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:editable="false"
+                    android:hint="Dhur"
+                    android:textColor="@color/conversion_text" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/text_ropani"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/biggha"
-                android:editable="false"
-                android:hint="Katha" />
+                android:layout_below="@id/text_dhur">
 
-            <EditText
-                android:id="@+id/dhur"
+                <EditText
+                    android:id="@+id/ropani"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:editable="false"
+                    android:hint="Ropani"
+                    android:textColor="@color/conversion_text" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/text_khetmuri"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/katha"
-                android:editable="false"
-                android:hint="Dhur" />
+                android:layout_below="@id/text_ropani">
 
-            <EditText
-                android:id="@+id/ropani"
+                <EditText
+                    android:id="@+id/khetmuri"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ropani"
+                    android:editable="false"
+                    android:hint="Khetmuri"
+                    android:textColor="@color/conversion_text" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/text_aana"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/dhur"
-                android:editable="false"
-                android:hint="Ropani" />
+                android:layout_below="@id/text_khetmuri">
 
-            <EditText
-                android:id="@+id/khetmuri"
+
+                <EditText
+                    android:id="@+id/aana"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:editable="false"
+                    android:hint="Aana"
+                    android:textColor="@color/conversion_text" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/text_paisa"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/ropani"
-                android:editable="false"
-                android:hint="Khetmuri" />
+                android:layout_below="@id/text_aana">
 
-            <EditText
-                android:id="@+id/aana"
+
+                <EditText
+                    android:id="@+id/paisa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:editable="false"
+                    android:hint="Paisa"
+                    android:textColor="@color/conversion_text" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/text_daam"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/khetmuri"
-                android:editable="false"
-                android:hint="Aana" />
+                android:layout_below="@+id/text_paisa">
 
-            <EditText
-                android:id="@+id/paisa"
+
+                <EditText
+                    android:id="@+id/daam"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:editable="false"
+                    android:hint="Daam"
+                    android:textColor="@color/conversion_text" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/text_meterSquare"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/aana"
-                android:editable="false"
-                android:hint="Paisa" />
+                android:layout_below="@id/text_daam">
 
-            <EditText
-                android:id="@+id/daam"
+                <EditText
+                    android:id="@+id/meterSquare"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:editable="false"
+                    android:hint="Meter Square"
+                    android:textColor="@color/conversion_text" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/text_squareFeet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/paisa"
-                android:editable="false"
-                android:hint="Daam" />
+                android:layout_below="@+id/text_meterSquare">
 
-            <EditText
-                android:id="@+id/meterSquare"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/daam"
-                android:editable="false"
-                android:hint="Meter Square" />
 
-            <EditText
-                android:id="@+id/squareFeet"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/meterSquare"
-                android:editable="false"
-                android:hint="Square Feet" />
+                <EditText
+                    android:id="@+id/squareFeet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:editable="false"
+                    android:hint="Square Feet"
+                    android:textColor="@color/conversion_text" />
+            </android.support.design.widget.TextInputLayout>
         </RelativeLayout>
     </ScrollView>
 </LinearLayout>

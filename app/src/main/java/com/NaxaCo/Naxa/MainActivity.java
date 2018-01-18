@@ -41,6 +41,8 @@ import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import java.io.IOException;
 import java.util.List;
 
+import mehdi.sakout.fancybuttons.FancyButton;
+
 import static com.NaxaCo.Naxa.Fragments.MapModelFragment.mMap;
 
 public class MainActivity extends AppCompatActivity
@@ -61,7 +63,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         unitConversion = new UnitConversion();
         unitDto=new UnitDto();
-        searchView = (MaterialSearchView) findViewById(R.id.search_view);
+        searchView = findViewById(R.id.search_view);
         searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -226,7 +228,7 @@ public class MainActivity extends AppCompatActivity
         final EditText daam;
         final EditText meterSquare;
         final EditText squareFeet;
-        Button convertButton;
+        FancyButton convertButton;
         View view = LayoutInflater.from(this).inflate(R.layout.unit_conversion_input_dialog, null);
         spinner = view.findViewById(R.id.spinner);
         editText = view.findViewById(R.id.inputUnit);
@@ -241,6 +243,12 @@ public class MainActivity extends AppCompatActivity
         daam=view.findViewById(R.id.daam);
         meterSquare=view.findViewById(R.id.meterSquare);
         squareFeet=view.findViewById(R.id.squareFeet);
+        editText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editText.setText(null);
+            }
+        });
         spinner.setItems("Select Unit", "Bigha", "Katha", "Dhur", "Ropani", "Khetmuri", "Aana", "Paisa", "Daam", "Meter square", "Square feet");
         //spinner.getItems();
         spinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {

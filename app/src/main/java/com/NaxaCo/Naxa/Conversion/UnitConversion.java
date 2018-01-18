@@ -1,10 +1,12 @@
 package com.NaxaCo.Naxa.Conversion;
 
+import android.widget.Toast;
+
 /**
  * Created by Shri on 17/01/2018.
  */
 
-import com.NaxaCo.Naxa.Conversion.UnitDto;
+
 
 public class UnitConversion {
     UnitDto unitDto;
@@ -31,6 +33,7 @@ public class UnitConversion {
                 ropani = vInputUnit * vInputUnit;//Unchecked
                 bigha = vInputUnit;
                 unitDto.setKatha(katha);
+                //unitDto.getKatha();
                 unitDto.setMeterSquare(meterSquare);
                 unitDto.setSquareFeet(squareFeet);
                 unitDto.setRopani(ropani);
