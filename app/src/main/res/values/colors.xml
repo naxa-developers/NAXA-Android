@@ -10,5 +10,6 @@
     <color name="conversion_text">#3985b7</color>
     <color name="conversion_body"></color>
     <color name="conversion_head_background">#3b3b3b</color>
+    <color name="color_transparent">#80ffffff</color>
 
 </resources>

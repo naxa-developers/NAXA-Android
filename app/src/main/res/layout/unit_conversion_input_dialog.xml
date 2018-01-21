@@ -14,18 +14,19 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="7dp"
+            android:layout_margin="15dp"
             android:background="@color/conversion_head"
             android:gravity="center_horizontal"
             android:text="Unit Conversion"
             android:textColor="@color/colorPrimary"
-            android:textSize="30sp"
-            android:typeface="monospace" />
+            android:textSize="25sp"
+            android:typeface="serif" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
+        android:layout_marginRight="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -74,6 +75,7 @@
         fancy:fb_textColor="#FFFFFF" />
 
     <ScrollView
+        android:layout_marginBottom="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
@@ -90,13 +92,14 @@
 
 
                 <EditText
+                    android:textColorHint="@color/conversion_head"
+                    android:textColorHighlight="@color/conversion_head"
                     android:id="@+id/biggha"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:clickable="false"
                     android:editable="false"
                     android:hint="Biggha"
-
                     android:textColor="@color/conversion_text" />
             </android.support.design.widget.TextInputLayout>
 

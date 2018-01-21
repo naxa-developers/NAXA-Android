@@ -1,5 +1,7 @@
 package com.NaxaCo.Naxa.Conversion;
 
+import android.content.Context;
+import android.support.design.widget.Snackbar;
 import android.widget.Toast;
 
 /**
@@ -20,9 +22,16 @@ public class UnitConversion {
     private double daam;
     private double meterSquare;
     private double squareFeet;
+    private static Context context;
+    public UnitConversion(Context c){
+        context =c;
+    }
 
     public void convertUnit(double vInputUnit, int cCaseUnit) {
+
+
         unitDto = new UnitDto();
+        int a=5;
         switch (cCaseUnit) {
 
             case 1:
@@ -30,15 +39,24 @@ public class UnitConversion {
                 katha = vInputUnit * 20;
                 meterSquare = vInputUnit * 6772.63;
                 squareFeet = vInputUnit * 72900;
-                ropani = vInputUnit * vInputUnit;//Unchecked
                 bigha = vInputUnit;
+                dhur=vInputUnit*400;
+                ropani=squareFeet/5476;
+                khetmuri=ropani/25;
+                aana=squareFeet/342.25;
+                paisa=squareFeet/4*21.39;
+                daam=squareFeet/21.39;
+
+                //unitDto.setKatha(a);
                 unitDto.setKatha(katha);
+              //  Toast.makeText(context,"h"+unitDto.getKatha(),Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(context,"h"+String.valueOf(unitDto.getKatha()),Toast.LENGTH_SHORT).show();
                 //unitDto.getKatha();
                 unitDto.setMeterSquare(meterSquare);
                 unitDto.setSquareFeet(squareFeet);
                 unitDto.setRopani(ropani);
                 unitDto.setBigha(bigha);
-                break;
+                return;
 
             case 2:
                 //for katha
@@ -119,6 +137,42 @@ public class UnitConversion {
                 unitDto.setMeterSquare(meterSquare);
                 unitDto.setDaam(daam);
                 break;
+            default:
+                Toast.makeText(context,"Select Unit to convert",Toast.LENGTH_LONG).show();
+            break;
         }
     }
+
+    //Aftermath conversion
+    public double getBigha(){
+        return bigha;
+    }
+    public double getKatha(){
+        return katha;
+    }
+    public double getDhur(){
+        return dhur;
+    }
+    public double getRopani(){
+        return ropani;
+    }
+    public double getKhetmuri(){
+        return khetmuri;
+    }
+    public double getAana(){
+        return aana;
+    }
+    public double getPaisa(){
+        return paisa;
+    }
+    public double getDaam(){
+        return daam;
+    }
+    public double getMeterSquare(){
+        return meterSquare;
+    }
+    public double getSquareFeet(){
+        return squareFeet;
+    }
+
 }

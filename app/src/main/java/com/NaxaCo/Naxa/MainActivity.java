@@ -9,6 +9,7 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        unitConversion = new UnitConversion();
+        unitConversion = new UnitConversion(getApplicationContext());
         unitDto=new UnitDto();
         searchView = findViewById(R.id.search_view);
         searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
@@ -149,14 +150,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -205,17 +199,6 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void inputDialogUnitConversion() {
-        /*  private double bigha;
-    private double katha;
-    private double dhur;
-    private double ropani;
-    private double khetmuri;
-    private double aana;
-    private double paisa;
-    private double daam;
-    private double meterSquare;
-    private double squareFeet;*/
-
         Dialog dialog = new Dialog(this);
         final EditText editText;
         final EditText bigha;
@@ -261,25 +244,30 @@ public class MainActivity extends AppCompatActivity
         convertButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            //    Toast.makeText(getApplicationContext(), "" + spinner.getSelectedIndex(), Toast.LENGTH_SHORT).show();
-                unitConversion.convertUnit(Double.parseDouble(editText.getText().toString()), spinner.getSelectedIndex());
-                Toast.makeText(getApplicationContext(),""+Double.parseDouble(editText.getText().toString()),Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(),""+String.valueOf(unitDto.getBigha()),Toast.LENGTH_SHORT).show();
-                bigha.setText(String.valueOf(unitDto.getBigha()));
-                katha.setText(String.valueOf(unitDto.getKatha()));
-                dhur.setText(String.valueOf(unitDto.getDhur()));
-                ropani.setText(String.valueOf(unitDto.getRopani()));
-                khetmuri.setText(String.valueOf(unitDto.getKhetmuri()));
-                aana.setText(String.valueOf(unitDto.getAana()));
-                paisa.setText(String.valueOf(unitDto.getPaisa()));
-                daam.setText(String.valueOf(unitDto.getDaam()));
-                meterSquare.setText(String.valueOf(unitDto.getMeterSquare()));
-                squareFeet.setText(String.valueOf(unitDto.getSquareFeet()));
+                try {
+                    unitConversion.convertUnit(Double.parseDouble(editText.getText().toString()), spinner.getSelectedIndex());
+                    bigha.setText(String.valueOf(unitConversion.getBigha()));
+                    katha.setText(String.valueOf(unitConversion.getKatha()));
+                    dhur.setText(String.valueOf(unitConversion.getDhur()));
+                    ropani.setText(String.valueOf(unitConversion.getRopani()));
+                    khetmuri.setText(String.valueOf(unitConversion.getKhetmuri()));
+                    aana.setText(String.valueOf(unitConversion.getAana()));
+                    paisa.setText(String.valueOf(unitConversion.getPaisa()));
+                    daam.setText(String.valueOf(unitConversion.getDaam()));
+                    meterSquare.setText(String.valueOf(unitConversion.getMeterSquare()));
+                    squareFeet.setText(String.valueOf(unitConversion.getSquareFeet()));
+                }
+                catch (Exception e){
+                     Snackbar.make(view,"Invalid Input",Snackbar.LENGTH_SHORT).show();
+                }
+
             }
         });
 
         dialog.setContentView(view);
         dialog.show();
+
+
     }
 
 
