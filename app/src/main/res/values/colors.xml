@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#ffffff</color>
-    <color name="colorPrimaryDark">#9a9a9a</color>
-    <color name="colorAccent">#000000</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#7e7d7d</color>
     <color name="fab_colorNormal">#3F51B5</color>
     <color name="fab_colorPressed">#303F9F</color>
     <color name="fab_colorRipple">#FF4081</color>
@@ -11,5 +11,6 @@
     <color name="conversion_body"></color>
     <color name="conversion_head_background">#3b3b3b</color>
     <color name="color_transparent">#80ffffff</color>
-
+    <color name="free_draw_title_value">#737373</color>
+    <color name="test">#60f9f4</color>
 </resources>

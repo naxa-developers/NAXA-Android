@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    tools:context="com.NaxaCo.Naxa.WelcomeActivity">
+    <ImageView
+        android:background="@drawable/back"
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="250dp" />
+
+    <Button
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/map"
+        android:id="@+id/Conversion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Conversion" />
+
+    <Button
+        android:layout_below="@id/Conversion"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/Plotter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Plotter" />
+
+    <Button
+        android:layout_below="@id/Plotter"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/GeoData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Geo Data" />
+
+    <ImageButton
+        android:id="@+id/info_display"
+        android:layout_below="@id/GeoData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="296dp"
+        android:src="@drawable/common_google_signin_btn_icon_dark"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="427dp" />
+
+    <ImageButton
+        android:id="@+id/profile"
+        android:layout_below="@id/GeoData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/ic_account_circle_black_24dp" />
+
+    <TextView
+        android:layout_below="@id/profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="My Profile" />
+</RelativeLayout>

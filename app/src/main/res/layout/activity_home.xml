@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    tools:context="com.NaxaCo.Naxa.HomeActivity">
+
+    <RelativeLayout
+        android:id="@+id/display_View"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/save">
+
+        <view
+            android:id="@+id/freedraw"
+            class="com.NaxaCo.Naxa.Plotter.FreeDraw"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/conversion_title"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:background="@color/free_draw_title_value"
+            android:gravity="center"
+            android:text="Conversion"
+            android:textSize="17sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:text="Powered by NaXa"
+            android:textSize="17sp"
+            android:typeface="serif" />
+
+        <HorizontalScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/save"
+            android:layout_alignLeft="@id/freedraw"
+            android:layout_below="@id/conversion_title">
+
+            <LinearLayout
+                android:id="@+id/show_conversion"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_below="@id/conversion_title"
+                android:background="@color/conversion_head"
+                android:gravity="bottom"
+                android:orientation="horizontal">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/conversion_rapd"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:hint="R-A-P-D"
+                        android:textColor="@color/conversion_text" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/conversion_bkd"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:hint="B-K-D" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/conversion_biggha"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:hint="Biggha" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/conversion_kathha"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:hint="Kattha" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/conversion_dhur"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:hint="Dhur" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/conversion_khetmuri"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:hint="Khetmuri" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/conversion_ropani"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:hint="Ropani" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/conversion_aana"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:hint="Aana" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/conversion_matomuri"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:hint="Matomuri" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/conversion_km"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:hint="K-M" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/conversion_acre"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:hint="Acre" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/conversion_squareKm"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:hint="Sq.KM" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/converions_squareM"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:hint="Square M" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+        </HorizontalScrollView>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="Save" />
+
+    <Button
+        android:id="@+id/area"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:text="Find Area"
+        android:textAllCaps="false" />
+</RelativeLayout>
+
