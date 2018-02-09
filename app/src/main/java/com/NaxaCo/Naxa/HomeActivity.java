@@ -4,7 +4,6 @@ import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,12 +16,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.NaxaCo.Naxa.DbAccess.Blob.GetBlob;
 import com.NaxaCo.Naxa.DbAccess.Conversion_Area;
-import com.NaxaCo.Naxa.Plotter.FreeDraw;
-
-import java.io.ByteArrayOutputStream;
 
 public class HomeActivity extends AppCompatActivity {
+    GetBlob IcGetBlob;
     Button save;
     Button area;
     Conversion_Area cConversion_area;
@@ -49,6 +47,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        IcGetBlob=new GetBlob();
         vConversion_Title = findViewById(R.id.conversion_title);
         vDisplay_View = findViewById(R.id.display_View);
         vConversion_Title.setVisibility(View.GONE);
@@ -112,7 +111,7 @@ public class HomeActivity extends AppCompatActivity {
                                     image = vDisplay_View.getDrawingCache();
                                     ContentValues contentValues=new ContentValues();
                                     contentValues.put("name",imageName);
-                                    contentValues.put("image",getBlob(image));
+                                    contentValues.put("saveImage",IcGetBlob.getBlob(image));
                                     cConversion_area.insertInfo(contentValues);
                                     Toast.makeText(getApplicationContext(),"Saved Sucessfully",Toast.LENGTH_SHORT).show();
                                 }
@@ -127,14 +126,5 @@ public class HomeActivity extends AppCompatActivity {
         });
 
 
-    }
-    public static byte[] getBlob(Bitmap bitmap){
-        ByteArrayOutputStream bos=new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG,100,bos);
-        byte[] bArray=bos.toByteArray();
-        return bArray;
-    }
-    public static Bitmap getBimap(byte[] byteArray){
-        return BitmapFactory.decodeByteArray(byteArray,0,byteArray.length);
     }
 }

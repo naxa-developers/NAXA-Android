@@ -38,7 +38,8 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps" />
+            android:label="@string/title_activity_maps"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -54,8 +55,9 @@
         </activity>
         <activity android:name=".UnitConversionActivity" />
         <activity android:name=".MyProfile" />
-        <activity android:name=".Info"></activity>
-        <activity android:name=".PdfView"></activity>
+        <activity android:name=".Info" />
+        <activity android:name=".PdfView" />
+        <activity android:name=".StaticMapActivity"></activity>
     </application>
 
 </manifest>

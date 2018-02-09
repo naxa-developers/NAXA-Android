@@ -21,6 +21,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.NaxaCo.Naxa.MainActivity;
+import com.NaxaCo.Naxa.MapCheck.MapCheck;
 import com.NaxaCo.Naxa.MapsActivity;
 import com.NaxaCo.Naxa.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -57,6 +58,7 @@ import java.util.List;
 public class MapModelFragment extends Fragment implements OnMapReadyCallback, GoogleMap.OnMapClickListener, GoogleMap.OnMapLongClickListener, GoogleMap.OnMarkerClickListener {
     private static final String TAG = MapsActivity.class.getSimpleName();
     public static GoogleMap mMap;
+    MapCheck IcMapCheck;
     private CameraPosition oCameraPosition;
     private GeoDataClient oGeoDataClient;
     private PlaceDetectionClient oPlaceDetectionClient;
@@ -137,8 +139,15 @@ public class MapModelFragment extends Fragment implements OnMapReadyCallback, Go
         showCurrentPlace();
         mMap.setMyLocationEnabled(true);
         mMap.getUiSettings().setMyLocationButtonEnabled(true);
-
+        mMap.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
+            @Override
+            public void onMapLoaded() {
+                IcMapCheck=new MapCheck();
+                IcMapCheck.setI(1);
+            }
+        });
     }
+
 
     private void getDeviceLocation() {
 
@@ -375,6 +384,7 @@ public class MapModelFragment extends Fragment implements OnMapReadyCallback, Go
         checkClick = false;
         Toast.makeText(getActivity(), "Area:" + SphericalUtil.computeArea(latLngs), Toast.LENGTH_SHORT).show();
     }
+
 
 
 }

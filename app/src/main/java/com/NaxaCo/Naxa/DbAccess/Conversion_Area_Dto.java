@@ -10,7 +10,14 @@ public class Conversion_Area_Dto {
     private int id;
     private String name;
     private byte[] image;
+    public Conversion_Area_Dto(){
 
+    }
+    public Conversion_Area_Dto(int id, String name, byte[] image) {
+        this.id = id;
+        this.name = name;
+        this.image = image;
+    }
     public byte[] getImage() {
         return image;
     }
@@ -34,8 +41,6 @@ public class Conversion_Area_Dto {
     public void setName(String name) {
         this.name = name;
     }
-
-
 
 
 }

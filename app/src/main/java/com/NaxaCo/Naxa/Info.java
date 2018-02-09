@@ -26,7 +26,5 @@ public class Info extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-  //      pdfView=findViewById(R.id.pdfView);
-//        pdfView.fromAsset("android_tutorial.pdf").load();
     }
 }
