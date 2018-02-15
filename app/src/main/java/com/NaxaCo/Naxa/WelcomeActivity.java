@@ -45,8 +45,8 @@ public class WelcomeActivity extends AppCompatActivity {
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(WelcomeActivity.this, MyProfile.class);
-                startActivity(intent);
+            //    Intent intent = new Intent(WelcomeActivity.this, MyProfile.class);
+              //  startActivity(intent);
             }
         });
         geoData = findViewById(R.id.GeoData);
@@ -97,22 +97,12 @@ public class WelcomeActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.welcome_activity_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.share:
-                break;
-            case R.id.likeUs:
-                break;
-            case R.id.About:
-                break;
-            case R.id.settings:
-                break;
         }
         return super.onOptionsItemSelected(item);
     }
