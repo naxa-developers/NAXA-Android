@@ -20,7 +20,6 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.NaxaCo.Naxa.MainActivity;
 import com.NaxaCo.Naxa.MapCheck.MapCheck;
 import com.NaxaCo.Naxa.MapsActivity;
 import com.NaxaCo.Naxa.R;
@@ -304,7 +303,7 @@ public class MapModelFragment extends Fragment implements OnMapReadyCallback, Go
                                 openPlacesDialog();
 
                             } else {
-                                Toast.makeText(getActivity(), "Error1", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(getActivity(), "Error1", Toast.LENGTH_SHORT).show();
 
                             }
                         }
