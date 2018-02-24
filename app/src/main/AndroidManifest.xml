@@ -39,25 +39,29 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/title_activity_maps"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".WelcomeActivity">
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".WelcomeActivity">
+
+        </activity>
         <activity android:name=".UnitConversionActivity" />
         <activity android:name=".MyProfile" />
         <activity android:name=".Info" />
         <activity android:name=".PdfView" />
-        <activity android:name=".StaticMapActivity"></activity>
+        <activity android:name=".StaticMapActivity" />
     </application>
 
 </manifest>

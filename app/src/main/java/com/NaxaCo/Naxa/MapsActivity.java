@@ -13,7 +13,7 @@ public class MapsActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps_layout);
         mapModelFragment = new MapModelFragment();
-        FragmentManager manager = getFragmentManager();
+        FragmentManager manager=getFragmentManager();
         manager.beginTransaction().replace(R.id.map_holder, mapModelFragment).commit();
     }
 }

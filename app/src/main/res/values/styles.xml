@@ -23,6 +23,7 @@
         <!-- Support library compatibility -->
         <item name="windowActionBarOverlay">true</item>
     </style>
+
     <style name="ToolbarColoredBlack" parent="AppTheme">
         <item name="android:textColorSecondary">@color/colorAccent</item>
     </style>

@@ -20,4 +20,5 @@
         <item>Uranus</item>
         <item>Neptune</item>
     </string-array>
+    <string name="title_activity_main__home">Main_Home</string>
 </resources>
